@@ -18,7 +18,8 @@ namespace ASE_Component_I
     public partial class Form1 : Form
 
     {
-        string[] commands = { "drawto", "moveto", "rectangle", "circle", "triangle"};
+        string[] commands = { "drawto", "moveto", "rectangle", "circle", "triangle","radius"};
+        string[] variables = { "radius", "length", "width" };
         public bool command2 = false;
         public int xAxis = 0;
         public int yAxis = 0;
@@ -100,6 +101,7 @@ namespace ASE_Component_I
                 }
                 String abc = multipleLine[k].Trim();
                 string[] split = abc.Split('(');//split array 
+                string[] forvariables = abc.Split('=');
 
 
                 try
@@ -122,6 +124,13 @@ namespace ASE_Component_I
                     else if (split[0].Equals("\n"))
                     {
 
+                    }
+
+                    else if (string.Compare(forvariables[0].ToLower(), "radius") == 0)
+                    {
+                        String[] forvariables1 = forvariables[1].Split(' ');
+                        string a = forvariables1[0];
+                        int.Parse(a);
                     }
                     else if (string.Compare(split[0].ToLower(), "drawto") == 0)
                     {
