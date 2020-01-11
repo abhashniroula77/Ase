@@ -8,30 +8,26 @@ using System.Threading.Tasks;
 namespace ASE_Component_I
 {
     /// <summary>
-    /// making circle class and inhereting from it
+    /// class to draw circle
     /// </summary>
-   public class Circle: Shape//inhereting  shape class
+    class Circle: Shape
     {
-        public int r, x, y;//initializing variables
+        private int r, x, y;
         /// <summary>
-        /// method for taking values
+        /// 
         /// </summary>
-        /// <param name="q"></param>
-        /// <param name="w"></param>
-        /// <param name="e"></param>
-        public void values(int q, int w, int e) { //method for saving values
-            x = q;
-            y = w;
-            r = e;
+        /// <param name="a">origin x- coordinate</param>
+        /// <param name="b">origin y- coordinate</param>
+        /// <param name="c">radius of circle</param>
+        public void saved_values(int a, int b, int c) {
+            x = a;
+            y = b;
+            r = c;
         }
-        /// <summary>
-        /// method for drawing circle
-        /// </summary>
-        /// <param name="g"></param>
-        public override void shaped(Graphics g)//overriding drawshape method
+        public override void Draw_shape(Graphics g)
         {
-            Pen dpen = new Pen(Color.Black,3);
-            g.DrawEllipse(dpen, x, y, r, r);//drawing circle 
+            Pen mew2 = new Pen(Color.Red,2);
+            g.DrawEllipse(mew2, x, y, r, r);
         }
     }
 }

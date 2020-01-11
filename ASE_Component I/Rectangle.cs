@@ -8,33 +8,33 @@ using System.Threading.Tasks;
 namespace ASE_Component_I
 {
     /// <summary>
-    /// making class rectangle and inhereting from shape
+    /// class to draw Rectangle
     /// </summary>
-    public class Rectangle:Shape//inhereting shape class 
+    class Rectangle:Shape
     {
-        public int l,b,x,y;//defining variable
+        private int x, y, w, h;
         /// <summary>
-        /// method for taking values of rectangle
+        /// 
         /// </summary>
-        /// <param name="q"></param>
-        /// <param name="w"></param>
-        /// <param name="e"></param>
-        /// <param name="r"></param>
-        public void values(int q, int w, int e,int r)
+        /// <param name="a">origin x- coordinate</param>
+        /// <param name="b">origin y- corordinate</param>
+        /// <param name="c">width of the rectangle</param>
+        /// <param name="d">height of the rectangle</param>
+        public void saved_values(int a, int b, int c, int d)
         {
-            x = q;
-            y = w;
-            b = e;
-            l = r;
+            x = a;
+            y = b;
+            w = c;
+            h = d;
         }
         /// <summary>
-        /// over riding shaped method for drawing rectangle
+        /// overriding
         /// </summary>
-        /// <param name="g"></param>
-        public override void shaped(Graphics g)//for drawing rectangle
+        /// <param name="g">object for graphics</param>
+        public override void Draw_shape(Graphics g)
         {
-            Pen dpen = new Pen(Color.Black, 3);
-            g.DrawRectangle(dpen, x, y, b, l);//drawing rectangle 
+            Pen mew3 = new Pen(Color.Blue, 2);
+            g.DrawRectangle(mew3, x, y, w, h);
         }
     }
 }
