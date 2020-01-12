@@ -71,7 +71,7 @@ namespace ASE_Component_I
                 if (parameter1.Length != 2)
                     throw new Exception("MoveTo Takes Only 2 Parameters");
                 else if (!parameter1[parameter1.Length - 1].Contains(')'))
-                    throw new Exception(" " + "Missing Paranthesis!!");
+                    throw new Exception(" " + "Bracket Missing");
                 else
                 {
                     String[] parameter2 = parameter1[1].Split(')');
@@ -97,7 +97,7 @@ namespace ASE_Component_I
                 if (parameter1.Length != 2)
                     throw new Exception("DrawTo Takes Only 2 Parameters");
                 else if (!parameter1[parameter1.Length - 1].Contains(')'))
-                    throw new Exception(" " + "Missing Paranthesis!!");
+                    throw new Exception(" " + "Bracket Missing");
                 else
                 {
                     String[] parameter2 = parameter1[1].Split(')');
@@ -131,7 +131,7 @@ namespace ASE_Component_I
                 if (parameter1.Length != 2)
                     throw new Exception("Rectangle Takes Only 2 Parameters");
                 else if (!parameter1[parameter1.Length - 1].Contains(')'))
-                    throw new Exception(" " + "Missing Paranthesis!!");
+                    throw new Exception(" " + "Bracket Missing");
                 else
                 {
                     String[] parameter2 = parameter1[1].Split(')');
@@ -149,7 +149,7 @@ namespace ASE_Component_I
                 String test = m_syntax[1];
                 String[] parameter2 = m_syntax[1].Split(')');
                 if (!test.Contains(')'))
-                    throw new Exception(" " + "Missing Paranthesis!!");
+                    throw new Exception(" " + "Bracket Missing");
                 else
                 {
                     String p2 = parameter2[0];
@@ -167,7 +167,7 @@ namespace ASE_Component_I
                 if (parameter1.Length != 2)
                     throw new Exception("Triangle Takes Only 2 Parameters");
                 else if (!parameter1[parameter1.Length - 1].Contains(')'))
-                    throw new Exception(" " + "Missing Paranthesis!!");
+                    throw new Exception(" " + "Bracket Missing");
                 else
                 {
                     String[] parameter2 = parameter1[1].Split(')');
@@ -305,7 +305,7 @@ namespace ASE_Component_I
                 }
                 catch (Exception e)
                 {
-                    textBox1.Text = "Line: " + lineCount + " Invalid Declration of variable";
+                    textBox1.Text = "Line: " + lineCount + " Invalid Declaration of variable";
                     return false;
                 }
 
@@ -327,7 +327,7 @@ namespace ASE_Component_I
 
                     if (!variableDict.ContainsKey(IfCondtionParameter[0].Trim().ToLower()))
                     {
-                        textBox1.Text = "Line: " + lineCount + " Variable doesn't exist";
+                        textBox1.Text = "Line: " + lineCount + " Variable not found";
                         return false;
                     }
 
@@ -374,7 +374,7 @@ namespace ASE_Component_I
                     }
                     if (!endIfCheck)
                     {
-                        textBox1.Text = "Line: " + lineCount + " If EndIf statement not closed.";
+                        textBox1.Text = "Line: " + lineCount + " If EndIf not closed properly";
                         return false;
                     }
 
@@ -419,7 +419,7 @@ namespace ASE_Component_I
                     }
                 catch (Exception e)
                 {
-                    textBox1.Text = "Line: " + lineCount + " Invalid if else statement" +"\n" + e.Message;
+                    textBox1.Text = "Line: " + lineCount + " Invalid if statement" +"\n" + e.Message;
                     return false;
                 }
 
@@ -452,7 +452,7 @@ namespace ASE_Component_I
                 int dictValue = Int32.Parse(variableDict[realKey]);
                 if (!variableDict.ContainsKey(realKey))
                 {
-                    textBox1.Text = "Line: " + lineCount + " Variable doesn't Exist";
+                    textBox1.Text = "Line: " + lineCount + " Variable not found";
                     return false;
                 }
 
@@ -493,7 +493,7 @@ namespace ASE_Component_I
                     Console.WriteLine(loopKey);
                     if (!variableDict.ContainsKey(loopKey))
                     {
-                        textBox1.Text = "Line: " + lineCount + " Variable doesn't exist 2";
+                        textBox1.Text = "Line: " + lineCount + " Variable not found";
                         return false;
                     }
 
@@ -513,7 +513,7 @@ namespace ASE_Component_I
                     }
                     if (!endloopCheck)
                     {
-                        textBox1.Text = "Line: " + lineCount + " loop not closed.";
+                        textBox1.Text = "Line: " + lineCount + "loop not ended properly not closed";
                         return false;
                     }
 
@@ -592,7 +592,7 @@ namespace ASE_Component_I
                 }
                 catch (Exception e)
                 {
-                    textBox1.Text = "Line: " + lineCount + " Invaild Loop Statement + \n " + e.Message;
+                    textBox1.Text = "Line: " + lineCount + " Loop statement invalid + \n " + e.Message;
                     return false;
                 }
 
@@ -617,7 +617,7 @@ namespace ASE_Component_I
 
                 if (!endMethodCheck)
                 {
-                    textBox1.Text = "Line: " + lineCount + "Method not closed" ;
+                    textBox1.Text = "Line: " + lineCount + "Method not ended" ;
                     return false;
                 }
 
@@ -627,12 +627,12 @@ namespace ASE_Component_I
                     String te = "";
                     String pe = "";
 
-                MessageBox.Show("Starting");
+                //starging method
                     for (int i = 0; i < area.Length; i++)
                     {
-                        if (area[i].ToLower().Contains("method"))
+                        if (area[i].ToLower().Contains("method"))  //checking method
                         {
-                            MessageBox.Show("found");
+                            
                             String[] t = area[i].Split(' ');
                             String[] nn = t[t.Length - 1].Split('(');
                             if (nn[nn.Length - 1].Contains(','))
@@ -669,14 +669,14 @@ namespace ASE_Component_I
                                 }
                             }
                             b.Add(nn[0].ToLower());
-                            MessageBox.Show(nn[0].ToLower());
+                            
                         }
                         else
                         {
                             te = te + area[i] + "\n";
                         }
                     }
-                    MessageBox.Show("Body: "+te);
+                 
                 body.Add(te);
                     n.Add(te.Split('\n'));
                     method = true;
@@ -827,7 +827,7 @@ namespace ASE_Component_I
                     if (b.Contains(m_syntax[0].ToLower()))
                     {
                         String cm = line;
-                        MessageBox.Show(cm);
+                       
                         String cg = cm.Split('(')[0].Trim();
                         if (b.Contains(cg.Trim()))
                         {
@@ -847,16 +847,16 @@ namespace ASE_Component_I
                                     else
                                     {
                                         String[] ad = pp[q].Split(')');
-                                        MessageBox.Show(ad[0]);
+                                       
                                         if (ad[0] != "" && ad[0] != " " && ad[0] == null)
                                             ij.Add(int.Parse(ad[0]));
                                         else
                                             ij.Add(int.Parse(ad[0]));
                                     }
                                 }
-                                MessageBox.Show("The length of ij: " + ij.Count().ToString());
+                               
                                 for (int k = 0; k < ij.Count(); k++) {
-                                    MessageBox.Show(ij[k].ToString());
+                                    
                                 }
                             }
                             else
@@ -883,7 +883,7 @@ namespace ASE_Component_I
                                     {
                                         if (za == " ")
                                         {
-                                            MessageBox.Show(zz[ss]);
+                                           
                                             caseRun(zz[ss]);
                                         }
                                         else
@@ -895,7 +895,7 @@ namespace ASE_Component_I
                                                 {
                                                     if (zz[ss].Contains(io[ui].Trim()))
                                                     {
-                                                        MessageBox.Show("Aayush"+zz[ss]+"\n"+ io[ui].Trim() +"\n"+ij[ui].ToString());
+                                                        
                                                         zz[ss] = zz[ss].Replace(io[ui].Trim(), ij[ui].ToString());
                                                        
                                                     }
@@ -904,7 +904,7 @@ namespace ASE_Component_I
                                                     caseRun(zz[ss]);
                                                 }
                                             }
-                                            MessageBox.Show(zz[ss]);
+                                           
                                             caseRun(zz[ss]);
                                         }
                                     }
@@ -912,7 +912,7 @@ namespace ASE_Component_I
                             }
                             else
                             {
-                                MessageBox.Show("Parameter Doesn't Match");
+                                MessageBox.Show("Parameter Not Matched");
                             }
                         }
                         else
@@ -927,7 +927,7 @@ namespace ASE_Component_I
                         if (parameter1.Length != 2)
                             throw new Exception("MoveTo Takes Only 2 Parameters");
                         else if (!parameter1[parameter1.Length - 1].Contains(')'))
-                            throw new Exception(" " + "Missing Paranthesis!!");
+                            throw new Exception(" " + "Bracket Missing");
                         else
                         {
                             String[] parameter2 = parameter1[1].Split(')');
@@ -953,7 +953,7 @@ namespace ASE_Component_I
                         if (parameter1.Length != 2)
                             throw new Exception("DrawTo Takes Only 2 Parameters");
                         else if (!parameter1[parameter1.Length - 1].Contains(')'))
-                            throw new Exception(" " + "Missing Paranthesis!!");
+                            throw new Exception(" " + "Bracket Missing");
                         else
                         {
                             String[] parameter2 = parameter1[1].Split(')');
@@ -987,7 +987,7 @@ namespace ASE_Component_I
                         if (parameter1.Length != 2)
                             throw new Exception("Rectangle Takes Only 2 Parameters");
                         else if (!parameter1[parameter1.Length - 1].Contains(')'))
-                            throw new Exception(" " + "Missing Paranthesis!!");
+                            throw new Exception(" " + "Bracket Missing");
                         else
                         {
                             String[] parameter2 = parameter1[1].Split(')');
@@ -1005,7 +1005,7 @@ namespace ASE_Component_I
                         String test = m_syntax[1];
                         String[] parameter2 = m_syntax[1].Split(')');
                         if (!test.Contains(')'))
-                            throw new Exception(" " + "Missing Paranthesis!!");
+                            throw new Exception(" " + "Bracket Missing");
                         else
                         {
                             String p2 = parameter2[0];
@@ -1023,7 +1023,7 @@ namespace ASE_Component_I
                         if (parameter1.Length != 2)
                             throw new Exception("Triangle Takes Only 2 Parameters");
                         else if (!parameter1[parameter1.Length - 1].Contains(')'))
-                            throw new Exception(" " + "Missing Paranthesis!!");
+                            throw new Exception(" " + " Bracket Missing");
                         else
                         {
                             String[] parameter2 = parameter1[1].Split(')');
@@ -1224,10 +1224,7 @@ namespace ASE_Component_I
 
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Commands:\nmoveto(a,b): To move the point of origin\ndrawto(a,b): Draw a line to given poinnt\ncircle(radius):Draw a circle\nrectangle(width,height):Draw a rectangle\ntriangle(bas,perpendicular):Draw atriangle\n ", "Help");
-        }
+     
 
         private void aboutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -1248,6 +1245,17 @@ namespace ASE_Component_I
         {
             Application.Exit();
             }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void helpToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Commands:\nmoveto(a,b): To move the point of origin\ndrawto(a,b): Draw a line to given poinnt\ncircle(radius):Draw a circle\nrectangle(width,height):Draw a rectangle\ntriangle(bas,perpendicular):Draw atriangle\n ", "Help");
+
+        }
     }
 }
     
