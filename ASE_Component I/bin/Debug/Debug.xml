@@ -125,7 +125,7 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:ASE_Component_I.Form1.aboutToolStripMenuItem_Click(System.Object,System.EventArgs)">
+        <member name="M:ASE_Component_I.Form1.textBox2_TextChanged(System.Object,System.EventArgs)">
             <summary>
             trigerrred when about button is clicked
             </summary>
