@@ -26,7 +26,7 @@ namespace ASE_Component_I
         }
         public override void Draw_shape(Graphics g)
         {
-            Pen mew2 = new Pen(Color.Red,2);
+            Pen mew2 = new Pen(Color.Green,2);
             g.DrawEllipse(mew2, x, y, r, r);
         }
     }

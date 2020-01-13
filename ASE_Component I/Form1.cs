@@ -419,7 +419,7 @@ namespace ASE_Component_I
                     }
                 catch (Exception e)
                 {
-                    textBox1.Text = "Line: " + lineCount + " Invalid if statement" +"\n" + e.Message;
+                    textBox1.Text = "Line: " + lineCount + " Invalid if statement" +"\n"+ e.Message;
                     return false;
                 }
 

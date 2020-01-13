@@ -33,7 +33,7 @@ namespace ASE_Component_I
         /// <param name="g">object for graphics</param>
         public override void Draw_shape(Graphics g)
         {
-            Pen mew3 = new Pen(Color.Blue, 2);
+            Pen mew3 = new Pen(Color.OrangeRed, 2);
             g.DrawRectangle(mew3, x, y, w, h);
         }
     }
