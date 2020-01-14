@@ -18,6 +18,10 @@ namespace ASE_Component_I
     /// </summary>
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// declaring flotation
+        /// </summary>
+        float rotation = 0;
        /// <summary>
        /// for positiong x axis
        /// </summary>
@@ -26,7 +30,7 @@ namespace ASE_Component_I
         /// for positing y axis
         /// </summary>
         public int positionYaxis = 0;
-        string[] shapes = {"drawto", "moveto", "rectangle", "circle","triangle"};//commands for first component
+        string[] shapes = {"drawto", "moveto", "rectangle", "circle","triangle","rotate"};//commands for first component
        /// <summary>
        /// for draw validation
        /// </summary>
@@ -181,6 +185,22 @@ namespace ASE_Component_I
                         rectangle_draw(positionXaxis, positionYaxis, int.Parse(p1), int.Parse(p2));
                     else
                         throw new ArgumentException("Rectangle Takes Only 2 Parameters");
+                }
+            }
+            else if (string.Compare(m_syntax[0].ToLower(), "rotate") == 0)
+            {
+                String test = m_syntax[1];
+                String[] parameter2 = m_syntax[1].Split(')');
+                if (!test.Contains(')'))
+                    throw new Exception(" " + "Missing Paranthesis!!");
+                else
+                {
+                    String p2 = parameter2[0];
+                    if (p2 != null || p2 != "" || p2 != " ")
+                        rotate(float.Parse(p2));
+                    else
+                        throw new ArgumentException("Rotate Takes Only 1 Parameter");
+
                 }
             }
             //executes if "circle" command is triggered
@@ -1109,6 +1129,23 @@ namespace ASE_Component_I
 
                         }
                     }
+
+                    else if (string.Compare(m_syntax[0].ToLower(), "rotate") == 0)
+                    {
+                        String test = m_syntax[1];
+                        String[] parameter2 = m_syntax[1].Split(')');
+                        if (!test.Contains(')'))
+                            throw new Exception(" " + "Missing Paranthesis!!");
+                        else
+                        {
+                            String p2 = parameter2[0];
+                            if (p2 != null || p2 != "" || p2 != " ")
+                                rotate(float.Parse(p2));
+                            else
+                                throw new ArgumentException("Rotate Takes Only 1 Parameter");
+
+                        }
+                    }
                     //executes if "triangle" command is triggered
                     else if (string.Compare(m_syntax[0].ToLower(), "triangle") == 0)
                     {
@@ -1188,6 +1225,7 @@ namespace ASE_Component_I
             Rectangle mewmew = new Rectangle();
             mewmew.saved_values(a, b, c, d);
             Graphics g = panel1.CreateGraphics();
+            g.RotateTransform(rotation);
             mewmew.Draw_shape(g);
             draw = true;
         }
@@ -1205,7 +1243,18 @@ namespace ASE_Component_I
             Circle mewmew2 = new Circle();
             mewmew2.saved_values(a, b, c);
             Graphics g = panel1.CreateGraphics();
+            g.RotateTransform(rotation);
             mewmew2.Draw_shape(g);
+            draw = true;
+        }
+        /// <summary>
+        /// rotate method
+        /// </summary>
+        /// <param name="a"></param>
+        public void rotate(float a)
+        {
+            draw = false;
+            rotation = a;
             draw = true;
         }
         /// <summary>
@@ -1221,6 +1270,7 @@ namespace ASE_Component_I
             Triangle mewmew4 = new Triangle();
             mewmew4.saved_values(a, b, c, d);
             Graphics g = panel1.CreateGraphics();
+            g.RotateTransform(rotation);
             mewmew4.Draw_shape(g);
             draw = true;
         }

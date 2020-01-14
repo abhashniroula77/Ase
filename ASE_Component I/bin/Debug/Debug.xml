@@ -23,6 +23,11 @@
             panel text field and all
             </summary>
         </member>
+        <member name="F:ASE_Component_I.Form1.rotation">
+            <summary>
+            declaring flotation
+            </summary>
+        </member>
         <member name="F:ASE_Component_I.Form1.positionXaxis">
             <summary>
             for positiong x axis
@@ -230,6 +235,12 @@
             <param name="a">x co ordinate of origin</param>
             <param name="b">y co ordinate of origin</param>
             <param name="c">radius of circle</param>
+        </member>
+        <member name="M:ASE_Component_I.Form1.rotate(System.Single)">
+            <summary>
+            rotate method
+            </summary>
+            <param name="a"></param>
         </member>
         <member name="M:ASE_Component_I.Form1.triangle_draw(System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
