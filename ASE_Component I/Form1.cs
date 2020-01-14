@@ -18,15 +18,35 @@ namespace ASE_Component_I
     /// </summary>
     public partial class Form1 : Form
     {
-
-        public int positionXaxis = 0;
+       /// <summary>
+       /// for positiong x axis
+       /// </summary>
+        public int positionXaxis = 0; 
+        /// <summary>
+        /// for positing y axis
+        /// </summary>
         public int positionYaxis = 0;
-        string[] shapes = {"drawto", "moveto", "rectangle", "circle","triangle"};
-        public bool draw = false;
+        string[] shapes = {"drawto", "moveto", "rectangle", "circle","triangle"};//commands for first component
+       /// <summary>
+       /// for draw validation
+       /// </summary>
+        public bool draw = false; 
+        /// <summary>
+        /// for load
+        /// </summary>
         public bool load = false;
         bool method = false;
+        /// <summary>
+        /// for save
+        /// </summary>
         public bool save = false;
+        /// <summary>
+        /// for executing
+        /// </summary>
         public bool execute = false;
+        /// <summary>
+        /// for clearing bool value
+        /// </summary>
         public bool clear_bool = false;
 
         List<String[]> n = new List<String[]>();
@@ -35,12 +55,29 @@ namespace ASE_Component_I
         List<int> p = new List<int>();
         List<String> pi = new List<String>();
 
-
+        /// <summary>
+        /// for reseting bool value
+        /// </summary>
         public bool reset_bool = false;
-        public int lineCount = 1;
-        public int lineNumberCount = 0;
-        public int IfCounter = 0;
-        public Dictionary<string, string> variableDict = new Dictionary<string, string>();
+        /// <summary>
+        /// for counting if line
+        /// </summary>
+        public int lineCount = 1;//for counting if line
+        /// <summary>
+        /// for counting line number count
+        /// </summary>
+        public int lineNumberCount = 0;//for conting line number for loop for count
+        /// <summary>
+        /// for counting if counter
+        /// </summary>
+        public int IfCounter = 0;//if statement counter
+        /// <summary>
+        /// declaring data dictonary for storing variables
+        /// </summary>
+        public Dictionary<string, string> variableDict = new Dictionary<string, string>();//initializing data dictonary for storing variable
+        /// <summary>
+        /// intiatlizing components
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +99,10 @@ namespace ASE_Component_I
 
 
         }
-
+        /// <summary>
+        /// This method is for checking syntax
+        /// </summary>
+        /// <param name="m_syntax"></param>
         public void shsh(String[] m_syntax)
         {
             if (string.Compare(m_syntax[0].ToLower(), "moveto") == 0)
@@ -230,7 +270,7 @@ namespace ASE_Component_I
         /// <param name="e"></param>
         public void button2_Click(object sender, EventArgs e)
         {
-            variableDict.Clear();
+            variableDict.Clear();//clearing data dictonary
             method = false;
 
             lineCount = 1;
@@ -259,7 +299,11 @@ namespace ASE_Component_I
                
 
         }
-
+        /// <summary>
+        /// cases for if loop and commands
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
             public bool caseRun(string line)
             {
                 line = line.ToLower().Trim();
@@ -298,12 +342,13 @@ namespace ASE_Component_I
                     string value = variableDeclration[1];
                    
 
-                    variableDict.Add(key,value);
+                    variableDict.Add(key,value);//adding value in dictonary
 
                  
 
                 }
-                catch (Exception e)
+                //catch expression
+                catch (Exception )
                 {
                     textBox1.Text = "Line: " + lineCount + " Invalid Declaration of variable";
                     return false;
@@ -323,7 +368,7 @@ namespace ASE_Component_I
                     foreach(string c in IfCondtionParameter){
                         Console.WriteLine(c);
                     }
-
+                    //checking in dictonary variable not found case
 
                     if (!variableDict.ContainsKey(IfCondtionParameter[0].Trim().ToLower()))
                     {
@@ -341,6 +386,8 @@ namespace ASE_Component_I
                    string v = IfCondtionParameter[0].Trim().ToLower();
                     string varValuestring = variableDict[v];
                     int varvalue = Int32.Parse(varValuestring);
+
+                    //checkig if line contains values
 
                     if (line.Contains("="))
                     {
@@ -364,7 +411,7 @@ namespace ASE_Component_I
 
                     foreach (string l in multi_syntax)
                     {
-
+                        //breaking condition with end if
                         if(l.ToLower().Trim() == "endif")
                         {
                             endIfCheck = true;
@@ -418,6 +465,7 @@ namespace ASE_Component_I
 
                     }
                 catch (Exception e)
+                //for invalid loop statement
                 {
                     textBox1.Text = "Line: " + lineCount + " Invalid if statement" +"\n"+ e.Message;
                     return false;
@@ -427,6 +475,7 @@ namespace ASE_Component_I
 
 
 
+               
 
             }else if(line=="endif"){
                 return true;
@@ -438,7 +487,7 @@ namespace ASE_Component_I
                 //check variable operation
                 string[] variable = line.Split(new char[] { '+','-' }, 2, StringSplitOptions.RemoveEmptyEntries);
                 string variableOperator = "";
-
+                //checking if line contains
                 if (line.Contains("+"))
                 {
                     variableOperator = "+";
@@ -450,6 +499,7 @@ namespace ASE_Component_I
                 string realKey = variable[0];
                 int realValue=Int32.Parse(variable[1]);
                 int dictValue = Int32.Parse(variableDict[realKey]);
+                //varaiable not found in dictonoary
                 if (!variableDict.ContainsKey(realKey))
                 {
                     textBox1.Text = "Line: " + lineCount + " Variable not found";
@@ -696,6 +746,11 @@ namespace ASE_Component_I
                 return true;
             }
 
+        /// <summary>
+        /// checking for loop condition
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public bool checkLoop(string line)
         {
             if (line.StartsWith("loop"))
@@ -704,6 +759,11 @@ namespace ASE_Component_I
             return false;
 
         }
+        /// <summary>
+        /// for if assignment
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public string[] getIfParameter(string line)
         {
 
@@ -717,6 +777,11 @@ namespace ASE_Component_I
 
 
         }
+        /// <summary>
+        /// checing if line contains 
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public bool checkVariableOperation(string line)
         {
             if (line.Contains("+") || line.Contains("-"))
@@ -725,7 +790,11 @@ namespace ASE_Component_I
             }
             return false;
         }
-
+        /// <summary>
+        /// stars with ( and end with )
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public string[] getParameter(string line)
         {
 
@@ -739,7 +808,11 @@ namespace ASE_Component_I
 
 
         }
-
+        /// <summary>
+        /// of checking if end if condition if starts with if
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public bool checkIfElse(string line)
         {
             if (line.StartsWith("if"))
@@ -748,6 +821,11 @@ namespace ASE_Component_I
             }
             return false;
         }
+        /// <summary>
+        /// checking method
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public bool checkMethod(string line)
         {
             if (line.StartsWith("method"))
@@ -756,6 +834,11 @@ namespace ASE_Component_I
             }
             return false;
         }
+        /// <summary>
+        /// checking whether method starts with if method and loop
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public bool checkVariableDec(string line)
         {
             if (line.Contains("=") && !line.StartsWith("if") && !line.StartsWith("method") && !line.StartsWith("loop"))
@@ -764,7 +847,11 @@ namespace ASE_Component_I
             }
             return false;
         }
-
+        /// <summary>
+        /// for variable 
+        /// </summary>
+        /// <param name="lines"></param>
+        /// <returns></returns>
         public bool withVariable(string[] lines)
         {
             string line = "(" + lines[1];
@@ -806,6 +893,12 @@ namespace ASE_Component_I
 
             return true;
         }
+        /// <summary>
+        /// for running shape
+        /// </summary>
+        /// <param name="m_syntax"></param>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public bool runShape(string[] m_syntax, String line)
         {
            
@@ -1115,7 +1208,13 @@ namespace ASE_Component_I
             mewmew2.Draw_shape(g);
             draw = true;
         }
-        
+        /// <summary>
+        /// method for drawing traingle
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="d"></param>
         public void triangle_draw(int a, int b, int c, int d)
         {
             draw = false;
