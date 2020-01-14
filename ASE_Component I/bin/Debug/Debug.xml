@@ -23,6 +23,71 @@
             panel text field and all
             </summary>
         </member>
+        <member name="F:ASE_Component_I.Form1.positionXaxis">
+            <summary>
+            for positiong x axis
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.positionYaxis">
+            <summary>
+            for positing y axis
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.draw">
+            <summary>
+            for draw validation
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.load">
+            <summary>
+            for load
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.save">
+            <summary>
+            for save
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.execute">
+            <summary>
+            for executing
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.clear_bool">
+            <summary>
+            for clearing bool value
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.reset_bool">
+            <summary>
+            for reseting bool value
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.lineCount">
+            <summary>
+            for counting if line
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.lineNumberCount">
+            <summary>
+            for counting line number count
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.IfCounter">
+            <summary>
+            for counting if counter
+            </summary>
+        </member>
+        <member name="F:ASE_Component_I.Form1.variableDict">
+            <summary>
+            declaring data dictonary for storing variables
+            </summary>
+        </member>
+        <member name="M:ASE_Component_I.Form1.#ctor">
+            <summary>
+            intiatlizing components
+            </summary>
+        </member>
         <member name="M:ASE_Component_I.Form1.pentomove(System.Int32,System.Int32)">
             <summary>
             this methods takes two parameters x and y which when given values
@@ -31,6 +96,12 @@
             </summary>
             <param name="x">x co ordinate of origin</param>
             <param name="y">y co ordinate of origin</param>
+        </member>
+        <member name="M:ASE_Component_I.Form1.shsh(System.String[])">
+            <summary>
+            This method is for checking syntax
+            </summary>
+            <param name="m_syntax"></param>
         </member>
         <member name="M:ASE_Component_I.Form1.pentodraw(System.Int32,System.Int32)">
             <summary>
@@ -54,6 +125,77 @@
              </summary>
              <param name="sender"></param>
              <param name="e"></param>
+        </member>
+        <member name="M:ASE_Component_I.Form1.caseRun(System.String)">
+            <summary>
+            cases for if loop and commands
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.checkLoop(System.String)">
+            <summary>
+            checking for loop condition
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.getIfParameter(System.String)">
+            <summary>
+            for if assignment
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.checkVariableOperation(System.String)">
+            <summary>
+            checing if line contains 
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.getParameter(System.String)">
+            <summary>
+            stars with ( and end with )
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.checkIfElse(System.String)">
+            <summary>
+            of checking if end if condition if starts with if
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.checkMethod(System.String)">
+            <summary>
+            checking method
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.checkVariableDec(System.String)">
+            <summary>
+            checking whether method starts with if method and loop
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.withVariable(System.String[])">
+            <summary>
+            for variable 
+            </summary>
+            <param name="lines"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ASE_Component_I.Form1.runShape(System.String[],System.String)">
+            <summary>
+            for running shape
+            </summary>
+            <param name="m_syntax"></param>
+            <param name="line"></param>
+            <returns></returns>
         </member>
         <member name="M:ASE_Component_I.Form1.clear">
             <summary>
@@ -88,6 +230,15 @@
             <param name="a">x co ordinate of origin</param>
             <param name="b">y co ordinate of origin</param>
             <param name="c">radius of circle</param>
+        </member>
+        <member name="M:ASE_Component_I.Form1.triangle_draw(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            method for drawing traingle
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+            <param name="d"></param>
         </member>
         <member name="M:ASE_Component_I.Form1.button1_Click(System.Object,System.EventArgs)">
             <summary>
